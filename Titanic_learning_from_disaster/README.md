@@ -1,12 +1,10 @@
 # Drafting a machine learning solution 
 
-	This is the code skeleton on how to define a machine learning draft solution.  
-	study case: kaggle competition - Titanic learning from disaster
+This is the code skeleton on how to define a machine learning draft solution.  
+study case: kaggle competition - Titanic learning from disaster
 
+Folder structure:
 
-	Folder structure:
-
-	```bash
 	 $tree 
 	.
 	├── data
@@ -18,13 +16,9 @@
 	    └── worksript.py
 
 	2 directories, 5 files
-	``` 
-
-	How to run the script: 
-
-
-	```bash 
+	 
+How to run the script: 
+	
 	$time python scripts/worksript.py -td data/train.csv -tsd data/test.csv 
-	```
-
-	The output is a file called prediction.csv 
+	
+The output is a file called prediction.csv 
