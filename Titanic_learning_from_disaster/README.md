@@ -2,6 +2,7 @@
 
 This is the code skeleton on how to define a machine learning draft solution.  
 study case: kaggle competition - Titanic learning from disaster
+Link: https://www.kaggle.com/c/titanic 
 
 Folder structure:
 
