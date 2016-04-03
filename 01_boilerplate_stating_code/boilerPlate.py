@@ -7,23 +7,11 @@
 import pandas as pd 
 import argparse 
 import sys 
+import logging 
 
 class BoilerPlate():
 	def __init__(self):
 		pass 
-
-	def writeMessage(self, message, mode="D"):
-		"""
-		a wrapper function to write debug messages
-		@param message: a string that is the message to write 
-		@param mode: the mode in which to yield the message 
-		@return None 
-		"""
-		#dictionary to hold all possible debug modes 
-		#3 modes, names are self expanatory 
-		debug_modes = {"D":"DEBUG:", "W":"WARNING:", "E":"ERROR:"}
-		print debug_modes[mode],message
-		return
 
 	def processInputArguments(self,args):
 		parser = argparse.ArgumentParser(description="Titanic: machine learning from disaster")
@@ -49,20 +37,30 @@ class BoilerPlate():
 		return vars(options)
 
 	def main(self):
+
+		##### Set up python logging format ###### 
+		log_format='%(asctime)s %(levelname)s %(message)s'
+		logging.basicConfig(format=log_format, level=logging.DEBUG)
+
+
+		##### Set up command command line parsing config ###### 
 		options = self.processInputArguments(sys.argv[1:])
 		training_data = options["training_data"]
 		test_data = options["test_data"]
 
-		self.writeMessage("loading training data","D")
-		train = pd.read_csv(training_data, delimiter=",")
 
-		self.writeMessage("loading test data","D")
+		##### load training data ###### 
+		logging.info("loading training data","D")
+		train = pd.read_csv(training_data, delimiter=",")
+		
+
+		logging.info("loading test data","D")
 		test = pd.read_csv(test_data, delimiter=",")
 		
-		self.writeMessage("doing some data cleansing stuff")
-		self.writeMessage("doing some cool machine learning ")		
+		logging.info("doing some data cleansing stuff")
+		logging.info("doing some cool machine learning ")		
 
-		self.writeMessage("finishing and writing out results")
+		logging.info("finishing and writing out results")
 
 		return 
 
